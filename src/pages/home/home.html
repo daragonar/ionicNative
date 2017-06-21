@@ -7,11 +7,30 @@
 <ion-content padding>
   <h2>Welcome to Ionic!</h2>
   <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
+    This starter project comes with simple tabs-based layout for apps that are going to primarily use a Tabbed UI.
   </p>
   <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
+    Take a look at the <code>src/pages/</code> directory to add or change tabs, update any existing page or create new pages.
   </p>
+  <div *ngIf="listenData">
+    <ion-list>
+      <ion-item>
+        <ion-textarea placeholder="Enter a description" [(ngModel)]="listenData" name="title"></ion-textarea>
+      </ion-item>
+    </ion-list>
+  </div>
+  <button ion-button full (click)="flash()">Encender/Apagar</button>
+  <button ion-button full (click)="getPicture()">abrir camara</button>
+  <button ion-button full (click)="getGallery()">abrir galeria</button>
+  <button ion-button full (click)="compartir()">compartir</button>
+  <button ion-button full (click)="scaner()">Escanear</button>
+  <button ion-button full (click)="empezarEscucha()">Empezar Escucha</button>
+  <button ion-button full (click)="terminarEscucha()">Terminar escucha(IOS)</button>
+  <img [src]="image" *ngIf="image" />
+ 
+  
+  <div *ngIf="scanerData">
+    <p>{{scanerData}}</p>
+  </div>
+
 </ion-content>
